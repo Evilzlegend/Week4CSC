@@ -13,7 +13,10 @@ namespace ObjectModelsDemo.Controllers
             {
                 foreach(var student in students)
                 {
-                    Console.WriteLine(student.fname, student.lname, student.major);
+                    System.Console.WriteLine(LogObject(student.studID));
+                    System.Console.WriteLine(LogObject(student.fname));
+                    System.Console.WriteLine(LogObject(student.lname));
+                    System.Console.WriteLine(LogObject(student.major));
                 }
                 // Returning students
                 return Accepted(students);
@@ -24,12 +27,18 @@ namespace ObjectModelsDemo.Controllers
             }
             
         }
+        
+        string LogObject(string students)
+        {
+            System.Diagnostics.Debug.WriteLine(students);
+            return students;
+        }
     }
 }
 
 public class Student
 {
-    public int studID { get; set; }
+    public string studID { get; set; }
     public string fname { get; set; }
     public string lname { get; set; }
     public string major { get; set; }
